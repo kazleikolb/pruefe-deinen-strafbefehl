@@ -16,26 +16,21 @@
     --muted:#9aa3b2;
     --accent:#c61f35;
 }
-
 body{
     margin:0;
     font-family:Arial, sans-serif;
     background:#0f1115;
     color:var(--text);
 }
-
 .wrapper{max-width:900px;margin:auto;padding:30px}
-
 h1{font-size:34px;margin-bottom:10px}
 .sub{color:var(--muted);margin-bottom:25px}
-
 .box{
     background:#171b22;
     padding:20px;
     border-radius:12px;
     margin-bottom:20px;
 }
-
 input, select{
     width:100%;
     padding:12px;
@@ -43,7 +38,6 @@ input, select{
     border-radius:6px;
     border:none;
 }
-
 button{
     width:100%;
     padding:14px;
@@ -53,11 +47,8 @@ button{
     font-size:16px;
     border-radius:8px;
 }
-
 .small{font-size:12px;color:#aaa}
-
 a{color:#ff4d4d}
-
 label{display:block;margin-bottom:10px}
 </style>
 </head>
@@ -78,36 +69,40 @@ label{display:block;margin-bottom:10px}
 </div>
 
 <div class="box">
-<form>
 
-<input type="text" placeholder="Name" required>
-<input type="text" placeholder="Adresse" required>
-<input type="tel" placeholder="Telefon" required>
-<input type="email" placeholder="E-Mail" required>
+<form action="https://formspree.io/f/mwvwdddv" method="POST" enctype="multipart/form-data">
 
-<select required>
+<input type="hidden" name="_subject" value="Neue Anfrage Strafbefehl">
+<input type="hidden" name="_next" value="https://pruefe-deinen-strafbefehl.de/danke.html">
+
+<input type="text" name="name" placeholder="Name" required>
+<input type="text" name="adresse" placeholder="Adresse" required>
+<input type="tel" name="telefon" placeholder="Telefon" required>
+<input type="email" name="email" placeholder="E-Mail" required>
+
+<select name="geldstrafe" required>
 <option value="">Frühere Geldstrafe?</option>
 <option>Ja</option>
 <option>Nein</option>
 </select>
 
 <label>Strafbefehl (PDF)</label>
-<input type="file" accept=".pdf" required>
+<input type="file" name="strafbefehl_pdf" accept=".pdf" required>
 
 <label>PZU (gelber Umschlag mit Datum) als PDF</label>
-<input type="file" accept=".pdf" required>
+<input type="file" name="pzu_pdf" accept=".pdf" required>
 
 <p class="small">
 Nur PDF möglich. Fotos sind für eine rechtssichere Prüfung nicht ausreichend lesbar.
 </p>
 
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="vollmacht" required>
 Ich bestätige die <a href="rechtliches.html#vollmacht">Vollmacht</a>.
 </label>
 
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="rechtliches" required>
 Ich akzeptiere 
 <a href="rechtliches.html#agb">AGB</a>, 
 <a href="rechtliches.html#widerruf">Widerrufsbelehrung</a> und 
@@ -122,6 +117,7 @@ Vertrauliche Übermittlung ausschließlich zur anwaltlichen Prüfung.
 </p>
 
 </form>
+
 </div>
 
 <div class="box">
