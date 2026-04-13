@@ -1,596 +1,330 @@
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rechtliches | pruefe-deinen-strafbefehl.de</title>
-    <meta name="theme-color" content="#efe5d4" />
-    <meta
-      name="description"
-      content="Vollmacht, AGB, Widerrufsbelehrung, Datenschutzhinweise und Impressum für pruefe-deinen-strafbefehl.de."
-    />
-    <style>
-      :root {
-        --bg: #efe5d4;
-        --bg-soft: #f7f1e7;
-        --surface: rgba(255, 251, 245, 0.88);
-        --surface-strong: #fffaf2;
-        --ink: #1f1c18;
-        --muted: #6e655c;
-        --line: rgba(46, 34, 22, 0.12);
-        --accent: #8f2333;
-        --accent-strong: #6d1625;
-        --gold: #b38749;
-        --warn: #7d4d11;
-        --warn-bg: rgba(179, 135, 73, 0.12);
-        --radius: 28px;
-        --radius-sm: 18px;
-        --shadow: 0 24px 70px rgba(49, 31, 17, 0.1);
-        --max: 1020px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        color: var(--ink);
-        font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
-        line-height: 1.68;
-        background:
-          radial-gradient(circle at top left, rgba(179, 135, 73, 0.14), transparent 22%),
-          radial-gradient(circle at top right, rgba(143, 35, 51, 0.08), transparent 24%),
-          linear-gradient(180deg, #f4ecdf 0%, #efe5d4 40%, #f7f2e8 100%);
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.26;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-        background-size: 30px 30px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), transparent 90%);
-      }
-
-      a {
-        color: var(--accent-strong);
-        text-underline-offset: 3px;
-      }
-
-      .wrapper {
-        width: min(var(--max), calc(100% - 32px));
-        margin: 0 auto;
-      }
-
-      .topbar {
-        padding: 22px 0;
-      }
-
-      .topbar-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-
-      .brand-title {
-        font-size: 0.98rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      .brand-sub {
-        margin-top: 4px;
-        color: var(--muted);
-        font-size: 0.86rem;
-      }
-
-      .back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 11px 15px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 250, 242, 0.7);
-        text-decoration: none;
-        color: var(--ink);
-      }
-
-      main {
-        padding-bottom: 34px;
-      }
-
-      .hero {
-        padding: 12px 0 10px;
-      }
-
-      h1,
-      h2,
-      h3 {
-        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-        letter-spacing: -0.03em;
-      }
-
-      h1 {
-        margin: 0 0 12px;
-        font-size: clamp(2.8rem, 7vw, 4.5rem);
-        line-height: 0.98;
-      }
-
-      .lead {
-        margin: 0;
-        max-width: 58ch;
-        color: #52483f;
-        font-size: 1.06rem;
-      }
-
-      .notice {
-        margin-top: 20px;
-        padding: 16px 18px;
-        border-radius: 20px;
-        border: 1px solid rgba(179, 135, 73, 0.3);
-        background: var(--warn-bg);
-        color: #5a431f;
-      }
-
-      .notice strong {
-        display: block;
-        margin-bottom: 4px;
-      }
-
-      .nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 22px 0 28px;
-      }
-
-      .nav a {
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 250, 242, 0.76);
-        text-decoration: none;
-        color: var(--ink);
-      }
-
-      .section {
-        margin: 0 0 16px;
-        padding: 26px;
-        border-radius: var(--radius);
-        border: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(252, 246, 238, 0.9)),
-          var(--surface);
-        box-shadow: var(--shadow);
-      }
-
-      .section h2 {
-        margin: 0 0 14px;
-        font-size: clamp(1.9rem, 4vw, 2.5rem);
-        line-height: 1.02;
-      }
-
-      .section h3 {
-        margin: 22px 0 10px;
-        font-size: 1.35rem;
-      }
-
-      .section p,
-      .section li {
-        color: #40372f;
-      }
-
-      .section p {
-        margin: 0 0 12px;
-      }
-
-      .section ul {
-        margin: 0 0 14px 18px;
-        padding: 0;
-      }
-
-      .section li + li {
-        margin-top: 8px;
-      }
-
-      .meta-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 16px;
-      }
-
-      .meta-card {
-        padding: 16px;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--line);
-        background: rgba(255, 250, 242, 0.68);
-      }
-
-      .meta-card strong {
-        display: block;
-        margin-bottom: 5px;
-      }
-
-      .small {
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .placeholder {
-        display: inline;
-        color: var(--accent-strong);
-        font-weight: 700;
-      }
-
-      .law-list {
-        display: grid;
-        gap: 10px;
-        margin-top: 12px;
-      }
-
-      .law-list div {
-        padding: 14px 16px;
-        border-radius: 16px;
-        border: 1px solid var(--line);
-        background: rgba(255, 250, 242, 0.7);
-      }
-
-      .law-list strong {
-        display: block;
-        margin-bottom: 3px;
-      }
-
-      .footer {
-        padding: 10px 0 42px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 780px) {
-        .topbar-inner {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .meta-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .section {
-          padding: 22px 20px;
+<!DOCTYPE html>
+<html class="light" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rechtliches | pruefe-deinen-strafbefehl.de</title>
+  <meta name="theme-color" content="#efe5d4" />
+  <meta
+    name="description"
+    content="Vollmacht, AGB, Widerrufsbelehrung, Datenschutzhinweise und Impressum für pruefe-deinen-strafbefehl.de."
+  />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed-variant": "#38485a",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#32a379",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#f2f0f2",
+            "secondary-fixed": "#d8e3fa",
+            "secondary": "#545f72",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e4e2e3",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#303032",
+            "background": "#fbf9fa",
+            "primary-container": "#1a2b3c",
+            "outline": "#74777d",
+            "surface": "#fbf9fa",
+            "on-primary-container": "#8192a7",
+            "surface-container-highest": "#e4e2e3",
+            "secondary-fixed-dim": "#bcc7dd",
+            "tertiary-fixed": "#8cf7c7",
+            "on-tertiary-fixed": "#002114",
+            "on-primary-fixed": "#0b1d2d",
+            "on-secondary-fixed-variant": "#3c475a",
+            "surface-tint": "#4f6073",
+            "tertiary": "#001a0f",
+            "on-secondary-container": "#586377",
+            "surface-bright": "#fbf9fa",
+            "inverse-primary": "#b7c8de",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "surface-container": "#efedef",
+            "on-tertiary-fixed-variant": "#005138",
+            "primary": "#041627",
+            "tertiary-fixed-dim": "#6fdaac",
+            "surface-dim": "#dbd9db",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f5f3f4",
+            "on-surface-variant": "#44474c",
+            "primary-fixed": "#d2e4fb",
+            "primary-fixed-dim": "#b7c8de",
+            "on-secondary-fixed": "#111c2c",
+            "secondary-container": "#d5e0f7",
+            "tertiary-container": "#003120",
+            "outline-variant": "#c4c6cd",
+            "on-surface": "#1b1c1d",
+            "surface-container-high": "#e9e7e9",
+            "on-background": "#1b1c1d"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Manrope"],
+            body: ["Inter"],
+            label: ["Inter"]
+          }
         }
       }
-    </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="wrapper topbar-inner">
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+  <nav class="fixed top-0 w-full z-50 bg-[#fbf9fa] dark:bg-[#041627] backdrop-blur-md bg-opacity-80 shadow-[0px_12px_32px_rgba(27,28,29,0.06)]">
+    <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Manrope'] tracking-tight gap-6">
+      <div>
+        <div class="text-xl font-bold text-[#041627] dark:text-[#fbf9fa]">pruefe-deinen-strafbefehl.de</div>
+        <div class="text-sm text-[#545f72] dark:text-slate-400">Ein Service der Kanzlei Kolb</div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#vollmacht" class="text-[#545f72] dark:text-slate-400 font-medium hover:text-[#32a379] transition-colors duration-300">Vollmacht</a>
+        <a href="#agb" class="text-[#545f72] dark:text-slate-400 font-medium hover:text-[#32a379] transition-colors duration-300">AGB</a>
+        <a href="#widerruf" class="text-[#545f72] dark:text-slate-400 font-medium hover:text-[#32a379] transition-colors duration-300">Widerruf</a>
+        <a href="#datenschutz" class="text-[#545f72] dark:text-slate-400 font-medium hover:text-[#32a379] transition-colors duration-300">Datenschutz</a>
+        <a href="#impressum" class="text-[#545f72] dark:text-slate-400 font-medium hover:text-[#32a379] transition-colors duration-300">Impressum</a>
+        <a href="pruefe-deinen-strafbefehl.html" class="bg-primary text-on-primary px-5 py-2 rounded-xl font-bold transition-all active:scale-95 shadow-lg bg-gradient-to-r from-primary to-primary-container">Zurück zur Startseite</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-20 px-8 max-w-7xl mx-auto">
+    <header class="mb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div class="brand-title">pruefe-deinen-strafbefehl.de</div>
-          <div class="brand-sub">Ein Service der Kanzlei Kolb</div>
+          <div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full text-sm text-primary font-semibold mb-4">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#32a379]"></span>
+            <span>Rechtliche Informationen</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-primary mb-4 max-w-4xl">Vollmacht, AGB, Widerrufsbelehrung, Datenschutz und Impressum.</h1>
+          <p class="text-secondary text-lg max-w-4xl">Auf dieser Seite finden Sie die Hinweise zur Bevollmächtigung für die Erstprüfung, die Allgemeinen Geschäftsbedingungen, die Widerrufsbelehrung, die Datenschutzhinweise und das Impressum.</p>
         </div>
-        <a class="back" href="pruefe-deinen-strafbefehl.html">Zurück zur Startseite</a>
+        <div class="flex gap-4">
+          <a href="pruefe-deinen-strafbefehl.html" class="flex items-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition-all">
+            <span class="material-symbols-outlined text-lg">arrow_back</span>
+            Zurück zur Startseite
+          </a>
+        </div>
       </div>
     </header>
 
-    <main class="wrapper">
-      <section class="hero">
-        <h1>Rechtliche Informationen</h1>
-        <p class="lead">
-          Auf dieser Seite finden Sie die Hinweise zur Bevollmächtigung für die Erstprüfung, die Allgemeinen
-          Geschäftsbedingungen, die Widerrufsbelehrung, die Datenschutzhinweise und das Impressum.
-        </p>
-
-        <div class="notice">
-          <strong>Vor Veröffentlichung prüfen</strong>
-          Einige gesetzlich relevante Angaben liegen mir noch nicht vor. Diese Stellen sind sichtbar markiert und sollten
-          vor dem Livegang mit den echten Kanzleidaten ersetzt werden.
+    <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15 mb-12">
+      <div class="p-6 md:p-8">
+        <div class="bg-error-container text-[#5a431f] rounded-xl p-5 border border-[#d9c29f] mb-6">
+          <div class="font-bold text-primary mb-2">Vor Veröffentlichung prüfen</div>
+          <p class="text-sm leading-relaxed">Einige gesetzlich relevante Angaben liegen mir noch nicht vor. Diese Stellen sind sichtbar markiert und sollten vor dem Livegang mit den echten Kanzleidaten ersetzt werden.</p>
         </div>
 
-        <nav class="nav" aria-label="Abschnitte">
-          <a href="#vollmacht">Vollmacht</a>
-          <a href="#agb">AGB</a>
-          <a href="#widerruf">Widerrufsbelehrung</a>
-          <a href="#datenschutz">Datenschutz</a>
-          <a href="#impressum">Impressum</a>
-        </nav>
-      </section>
+        <div class="flex flex-wrap gap-3">
+          <a href="#vollmacht" class="px-4 py-2 rounded-full bg-surface-container-highest text-primary font-medium border border-outline-variant/20 hover:bg-surface-container transition-all">Vollmacht</a>
+          <a href="#agb" class="px-4 py-2 rounded-full bg-surface-container-highest text-primary font-medium border border-outline-variant/20 hover:bg-surface-container transition-all">AGB</a>
+          <a href="#widerruf" class="px-4 py-2 rounded-full bg-surface-container-highest text-primary font-medium border border-outline-variant/20 hover:bg-surface-container transition-all">Widerrufsbelehrung</a>
+          <a href="#datenschutz" class="px-4 py-2 rounded-full bg-surface-container-highest text-primary font-medium border border-outline-variant/20 hover:bg-surface-container transition-all">Datenschutz</a>
+          <a href="#impressum" class="px-4 py-2 rounded-full bg-surface-container-highest text-primary font-medium border border-outline-variant/20 hover:bg-surface-container transition-all">Impressum</a>
+        </div>
+      </div>
+    </section>
 
-      <section class="section" id="vollmacht">
-        <h2>Vollmacht und Bevollmächtigung für die Erstprüfung</h2>
-        <p>
-          Mit Bestätigung der hierfür vorgesehenen Checkbox im Anfrageformular bevollmächtigen Sie Rechtsanwalt Sascha
-          Kolb, Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, zunächst zur anwaltlichen Erstprüfung der von Ihnen
-          übermittelten Unterlagen sowie zur Kontaktaufnahme mit Ihnen zur Rückfrage und Rückmeldung.
-        </p>
-        <p>Die Bevollmächtigung umfasst insbesondere:</p>
-        <ul>
-          <li>die Entgegennahme, Sichtung und rechtliche Prüfung der eingereichten Unterlagen, insbesondere des Strafbefehls und der PZU,</li>
-          <li>die Kontaktaufnahme mit Ihnen per Telefon oder E-Mail zur Klärung von Rückfragen,</li>
-          <li>die anwaltliche Ersteinschätzung zur Frage, ob und mit welchem Ziel ein weiteres Vorgehen in Betracht kommt,</li>
-          <li>die Vorbereitung eines gesonderten Angebots für eine weitergehende anwaltliche Vertretung, falls dies angezeigt erscheint.</li>
-        </ul>
-        <p>
-          Eine weitergehende Vertretung gegenüber Gerichten, Staatsanwaltschaften, Polizeibehörden oder sonstigen Dritten
-          wird durch die bloße Übermittlung Ihrer Anfrage noch nicht automatisch begründet. Eine solche weitergehende
-          Tätigkeit erfolgt grundsätzlich erst nach gesonderter ausdrücklicher Beauftragung.
-        </p>
-        <p>
-          Soweit Sie in einem Einzelfall ausdrücklich um sofortige fristwahrende Maßnahmen bitten und die Kanzlei diese
-          übernimmt, gelten ergänzend die dafür gesondert mitgeteilten Bedingungen.
-        </p>
-      </section>
-
-      <section class="section" id="agb">
-        <h2>Allgemeine Geschäftsbedingungen</h2>
-        <p>
-          Das Angebot auf pruefe-deinen-strafbefehl.de richtet sich an Personen, die eine anwaltliche Erstprüfung eines
-          Strafbefehls wünschen. Die Erstprüfung erfolgt kostenfrei, sofern im Einzelfall nichts Abweichendes ausdrücklich
-          vereinbart wird.
-        </p>
-        <p>
-          Mit Absenden des Formulars beauftragen Sie die Kanzlei mit der kostenfreien anwaltlichen Erstprüfung der von
-          Ihnen eingereichten Unterlagen. Durch das Absenden des Formulars wird jedoch noch kein kostenpflichtiges Mandat
-          über eine weitergehende Vertretung begründet.
-        </p>
-        <p>
-          Nach Prüfung der eingereichten Unterlagen erhalten Sie eine anwaltliche Rückmeldung. Falls eine weitergehende
-          Vertretung in Betracht kommt, wird hierzu gesondert ein Angebot unterbreitet. Eine Beauftragung für die weitere
-          Vertretung kommt erst zustande, wenn dieses Angebot ausdrücklich angenommen wird oder eine gesonderte eindeutige
-          Beauftragung erfolgt.
-        </p>
-        <p>
-          Sie sind verpflichtet, die übermittelten Angaben vollständig und zutreffend zu machen und ausschließlich gut
-          lesbare Dateien hochzuladen. Die anwaltliche Erstprüfung erfolgt ausschließlich auf Grundlage der von Ihnen
-          bereitgestellten Informationen und Unterlagen.
-        </p>
-        <p>
-          Eine Rückmeldung erfolgt in der Regel innerhalb von 3 Tagen ab Eingang vollständiger und lesbarer Unterlagen.
-          Diese Frist gilt nicht, wenn Unterlagen unvollständig, widersprüchlich oder technisch nicht lesbar sind oder wenn
-          Rückfragen erforderlich werden.
-        </p>
-        <p>
-          Hinweise auf mögliche Kosten einer späteren Vertretung, etwa eine weitere Vertretung bereits ab 499 Euro, stellen
-          kein verbindliches Angebot im Einzelfall dar, sondern lediglich eine unverbindliche Orientierungsangabe.
-        </p>
-        <p>
-          Ein bestimmter Erfolg der anwaltlichen Tätigkeit wird nicht geschuldet. Die Erstprüfung dient einer vorläufigen
-          anwaltlichen Einschätzung auf Grundlage des geschilderten und eingereichten Sachverhalts.
-        </p>
-      </section>
-
-      <section class="section" id="widerruf">
-        <h2>Widerrufsbelehrung</h2>
-        <p>
-          Soweit mit Verbrauchern im Einzelfall ein außerhalb von Geschäftsräumen geschlossener Vertrag oder ein
-          Fernabsatzvertrag zustande kommt und hierfür ein gesetzliches Widerrufsrecht besteht, gilt die nachfolgende
-          Belehrung.
-        </p>
-
-        <h3>Widerrufsrecht</h3>
-        <p>
-          Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen einen solchen Vertrag zu widerrufen. Die
-          Widerrufsfrist beträgt 14 Tage ab dem Tag des Vertragsschlusses.
-        </p>
-        <p>
-          Um Ihr Widerrufsrecht auszuüben, müssen Sie uns, Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim,
-          E-Mail: sk@kanzleikolb.com, mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu
-          widerrufen, informieren. Zur Wahrung der Frist reicht es aus, dass Sie die Mitteilung über die Ausübung des
-          Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
-        </p>
-
-        <h3>Folgen des Widerrufs</h3>
-        <p>
-          Wenn Sie einen widerrufsfähigen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten
-          haben, unverzüglich und spätestens binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren
-          Widerruf bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der
-          ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart.
-        </p>
-
-        <h3>Einverständnis mit Beginn vor Ablauf der Widerrufsfrist</h3>
-        <p>
-          Mit Bestätigung der hierfür vorgesehenen Checkbox im Anfrageformular verlangen Sie ausdrücklich und stimmen zu,
-          dass die Kanzlei mit der anwaltlichen Erstprüfung bereits vor Ablauf einer etwaigen Widerrufsfrist beginnt.
-        </p>
-        <p>
-          Sie bestätigen dabei zugleich, dass Ihnen bekannt ist, dass Ihr Widerrufsrecht bei vollständiger Erbringung der
-          Dienstleistung vorzeitig erlöschen kann, wenn mit der Ausführung erst begonnen wurde, nachdem Sie hierzu Ihre
-          ausdrückliche Zustimmung erteilt haben.
-        </p>
-        <p>
-          Soweit es sich bei der kostenfreien Erstprüfung im Einzelfall nicht um einen widerrufsfähigen Vertrag handelt,
-          bleibt diese Erklärung vorsorglich für den Fall maßgeblich, dass ein gesetzliches Widerrufsrecht doch bestehen
-          sollte oder später eine weitere widerrufsfähige Beauftragung erfolgt.
-        </p>
-
-        <h3>Muster für eine Widerrufserklärung</h3>
-        <p>
-          Wenn Sie den Vertrag widerrufen wollen, können Sie uns zum Beispiel folgende Erklärung übermitteln:
-        </p>
-        <p class="small">
-          An Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, E-Mail: sk@kanzleikolb.com:
-          Hiermit widerrufe ich den von mir abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung:
-          [Dienstleistung einfügen]. Bestellt/beauftragt am: [Datum]. Name und Anschrift des Verbrauchers:
-          [Angaben]. Datum und Unterschrift, sofern auf Papier widerrufen wird.
-        </p>
-      </section>
-
-      <section class="section" id="datenschutz">
-        <h2>Datenschutzhinweise</h2>
-        <p>
-          Verantwortlich für die Datenverarbeitung ist die Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim,
-          E-Mail: kontakt@kanzleikolb.com, Telefon: 08261 229 787 0 
-        </p>
-
-
-        <h3>Welche Daten wir verarbeiten</h3>
-        <ul>
-          <li>Stammdaten und Kontaktdaten wie Name, Anschrift, Telefonnummer und E-Mail-Adresse,</li>
-          <li>Angaben aus dem Anfrageformular, insbesondere zur Frage früherer Geldstrafen,</li>
-          <li>hochgeladene Unterlagen wie Strafbefehl, PZU und sonstige von Ihnen übermittelte Dokumente,</li>
-          <li>Kommunikationsdaten aus Rückfragen und Korrespondenz,</li>
-          <li>technische Protokolldaten, soweit dies zum sicheren Betrieb der Website erforderlich ist.</li>
-        </ul>
-
-        <h3>Zwecke der Verarbeitung</h3>
-        <ul>
-          <li>Bearbeitung Ihrer Anfrage und Durchführung der anwaltlichen Erstprüfung,</li>
-          <li>Kommunikation mit Ihnen und Klärung von Rückfragen,</li>
-          <li>Vorbereitung eines möglichen Folgeangebots für eine weitergehende anwaltliche Vertretung,</li>
-          <li>Erfüllung berufs-, steuer- und sonstiger gesetzlicher Pflichten,</li>
-          <li>IT-Sicherheit, Missbrauchsvermeidung sowie Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</li>
-        </ul>
-
-        <h3>Rechtsgrundlagen</h3>
-        <p>
-          Die Verarbeitung erfolgt in der Regel auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO zur Durchführung
-          vorvertraglicher Maßnahmen beziehungsweise zur Erfüllung eines Vertrags, auf Grundlage von Art. 6 Abs. 1 lit. c
-          DSGVO zur Erfüllung gesetzlicher Pflichten sowie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO für berechtigte
-          Interessen an einem sicheren und funktionsfähigen Kanzlei- und Websitebetrieb.
-        </p>
-        <p>
-          Soweit in Ihren Unterlagen besondere Kategorien personenbezogener Daten enthalten sind, erfolgt die Verarbeitung
-          ergänzend nur, soweit dies nach Art. 9 Abs. 2 DSGVO zulässig ist, insbesondere zur Geltendmachung, Ausübung oder
-          Verteidigung von Rechtsansprüchen. Soweit Unterlagen Angaben zu strafrechtlichen Vorwürfen, Straftaten oder
-          Verurteilungen enthalten, werden diese nur im Rahmen der rechtlich zulässigen anwaltlichen Mandatsanbahnung und
-          -bearbeitung verarbeitet.
-        </p>
-
-        <h3>Empfänger und Kategorien von Empfängern</h3>
-        <p>
-          Zugriff auf Ihre Daten erhalten nur diejenigen Stellen, die sie zur Bearbeitung Ihrer Anfrage benötigen. Hierzu
-          können interne Mitarbeiter der Kanzlei sowie technische Dienstleister gehören, etwa für Hosting, E-Mail,
-          Dateiverarbeitung, Datenspeicherung oder Websitebetrieb.
-        </p>
-
-        <h3>Drittlandübermittlungen</h3>
-        <p>
-          Eine Übermittlung in Staaten außerhalb der Europäischen Union oder des Europäischen Wirtschaftsraums findet nur
-          statt, wenn dies für einzelne technische Dienste erforderlich ist und die gesetzlichen Voraussetzungen hierfür
-          erfüllt sind. 
-        </p>
-
-        <h3>Speicherdauer</h3>
-        <p>
-          Wir speichern Ihre Daten nur so lange, wie dies für die Bearbeitung der Anfrage, die anwaltliche Erstprüfung,
-          die Anbahnung oder Durchführung eines Mandats oder zur Erfüllung gesetzlicher Aufbewahrungspflichten erforderlich
-          ist. Anfragen, aus denen kein Mandat entsteht, werden nach Abschluss der Bearbeitung gelöscht, soweit keine
-          berechtigten Gründe oder gesetzlichen Pflichten einer Löschung entgegenstehen.
-        </p>
-
-        <h3>Ihre Rechte</h3>
-        <p>
-          Ihnen stehen nach Maßgabe der gesetzlichen Voraussetzungen insbesondere Rechte auf Auskunft, Berichtigung,
-          Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen
-          zu.
-        </p>
-        <p>
-          Sie haben zudem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Zuständig für nichtöffentliche
-          Stellen in Bayern ist insbesondere das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach,
-          Website: <a href="https://www.lda.bayern.de/" target="_blank" rel="noreferrer">www.lda.bayern.de</a>.
-        </p>
-
-        <h3>Bereitstellung der Daten</h3>
-        <p>
-          Die Bereitstellung der als Pflichtangaben abgefragten Daten ist erforderlich, damit wir Ihre Anfrage prüfen und
-          bearbeiten können. Ohne diese Angaben oder ohne lesbare Unterlagen kann eine anwaltliche Erstprüfung regelmäßig
-          nicht erfolgen.
-        </p>
-
-        <h3>Automatisierte Entscheidungen</h3>
-        <p>
-          Eine ausschließlich automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet
-          nicht statt.
-        </p>
-      </section>
-
-      <section class="section" id="impressum">
-        <h2>Impressum</h2>
-        <p>
-          Kanzlei Kolb<br />
-          Landsberger Straße 8<br />
-          87719 Mindelheim
-        </p>
-        <div class="meta-grid">
-          <div class="meta-card">
-            <strong>Vertreten durch</strong>
-            Rechtsanwalt Sascha Kolb
-          </div>
-          <div class="meta-card">
-            <strong>Kontakt</strong>
-            E-Mail: kontakt@kanzleikolb.com<br />
-            Telefon: 08261 229 787 0
-          </div>
-          <div class="meta-card">
-            <strong>Zuständige Rechtsanwaltskammer</strong>
-           RAK München
-             Im Tal 33
-             80331 München
-          </div>
-          <div class="meta-card">
-            <strong>Berufsbezeichnung</strong>
-            Rechtsanwalt, verliehen in der Bundesrepublik Deutschland
-          </div>
-          <div class="meta-card">
-            <strong>Aufsichtsbehörde</strong>
-            RAK München
-          </div>
-          <div class="meta-card">
-            <strong>Berufshaftpflichtversicherung</strong>
-            R+V
-            Raiffeisenplatz 1
-            65189 Wiesbaden
+    <div class="space-y-6">
+      <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15" id="vollmacht">
+        <div class="p-6 md:p-8">
+          <h2 class="text-3xl font-bold text-primary mb-5">Vollmacht und Bevollmächtigung für die Erstprüfung</h2>
+          <div class="space-y-4 text-secondary leading-7">
+            <p>Mit Bestätigung der hierfür vorgesehenen Checkbox im Anfrageformular bevollmächtigen Sie Rechtsanwalt Sascha Kolb, Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, zunächst zur anwaltlichen Erstprüfung der von Ihnen übermittelten Unterlagen sowie zur Kontaktaufnahme mit Ihnen zur Rückfrage und Rückmeldung.</p>
+            <p>Die Bevollmächtigung umfasst insbesondere:</p>
+            <ul class="space-y-3 pl-5 list-disc">
+              <li>die Entgegennahme, Sichtung und rechtliche Prüfung der eingereichten Unterlagen, insbesondere des Strafbefehls und der PZU,</li>
+              <li>die Kontaktaufnahme mit Ihnen per Telefon oder E-Mail zur Klärung von Rückfragen,</li>
+              <li>die anwaltliche Ersteinschätzung zur Frage, ob und mit welchem Ziel ein weiteres Vorgehen in Betracht kommt,</li>
+              <li>die Vorbereitung eines gesonderten Angebots für eine weitergehende anwaltliche Vertretung, falls dies angezeigt erscheint.</li>
+            </ul>
+            <p>Eine weitergehende Vertretung gegenüber Gerichten, Staatsanwaltschaften, Polizeibehörden oder sonstigen Dritten wird durch die bloße Übermittlung Ihrer Anfrage noch nicht automatisch begründet. Eine solche weitergehende Tätigkeit erfolgt grundsätzlich erst nach gesonderter ausdrücklicher Beauftragung.</p>
+            <p>Soweit Sie in einem Einzelfall ausdrücklich um sofortige fristwahrende Maßnahmen bitten und die Kanzlei diese übernimmt, gelten ergänzend die dafür gesondert mitgeteilten Bedingungen.</p>
           </div>
         </div>
+      </section>
 
-        <h3>Berufsrechtliche Regelungen</h3>
-        <div class="law-list">
-          <div>
-            <strong>Bundesrechtsanwaltsordnung (BRAO)</strong>
-            Abrufbar unter
-            <a href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a>
-          </div>
-          <div>
-            <strong>Berufsordnung für Rechtsanwälte (BORA)</strong>
-            Abrufbar unter
-            <a href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a>
-          </div>
-          <div>
-            <strong>Fachanwaltsordnung (FAO), sofern einschlägig</strong>
-            Abrufbar unter
-            <a href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a>
-          </div>
-          <div>
-            <strong>Rechtsanwaltsvergütungsgesetz (RVG)</strong>
-            Abrufbar unter
-            <a href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a>
+      <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15" id="agb">
+        <div class="p-6 md:p-8">
+          <h2 class="text-3xl font-bold text-primary mb-5">Allgemeine Geschäftsbedingungen</h2>
+          <div class="space-y-4 text-secondary leading-7">
+            <p>Das Angebot auf pruefe-deinen-strafbefehl.de richtet sich an Personen, die eine anwaltliche Erstprüfung eines Strafbefehls wünschen. Die Erstprüfung erfolgt kostenfrei, sofern im Einzelfall nichts Abweichendes ausdrücklich vereinbart wird.</p>
+            <p>Mit Absenden des Formulars beauftragen Sie die Kanzlei mit der kostenfreien anwaltlichen Erstprüfung der von Ihnen eingereichten Unterlagen. Durch das Absenden des Formulars wird jedoch noch kein kostenpflichtiges Mandat über eine weitergehende Vertretung begründet.</p>
+            <p>Nach Prüfung der eingereichten Unterlagen erhalten Sie eine anwaltliche Rückmeldung. Falls eine weitergehende Vertretung in Betracht kommt, wird hierzu gesondert ein Angebot unterbreitet. Eine Beauftragung für die weitere Vertretung kommt erst zustande, wenn dieses Angebot ausdrücklich angenommen wird oder eine gesonderte eindeutige Beauftragung erfolgt.</p>
+            <p>Sie sind verpflichtet, die übermittelten Angaben vollständig und zutreffend zu machen und ausschließlich gut lesbare Dateien hochzuladen. Die anwaltliche Erstprüfung erfolgt ausschließlich auf Grundlage der von Ihnen bereitgestellten Informationen und Unterlagen.</p>
+            <p>Eine Rückmeldung erfolgt in der Regel innerhalb von 3 Tagen ab Eingang vollständiger und lesbarer Unterlagen. Diese Frist gilt nicht, wenn Unterlagen unvollständig, widersprüchlich oder technisch nicht lesbar sind oder wenn Rückfragen erforderlich werden.</p>
+            <p>Hinweise auf mögliche Kosten einer späteren Vertretung, etwa eine weitere Vertretung bereits ab 499 Euro, stellen kein verbindliches Angebot im Einzelfall dar, sondern lediglich eine unverbindliche Orientierungsangabe.</p>
+            <p>Ein bestimmter Erfolg der anwaltlichen Tätigkeit wird nicht geschuldet. Die Erstprüfung dient einer vorläufigen anwaltlichen Einschätzung auf Grundlage des geschilderten und eingereichten Sachverhalts.</p>
           </div>
         </div>
-
-        <p class="small">
-          Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV:
-          Rechtsanwalt Sascha Kolb, Landsberger Straße 8, 87719 Mindelheim.
-        </p>
       </section>
-    </main>
 
-    <footer class="footer">
-      <div class="wrapper">pruefe-deinen-strafbefehl.de · Ein Service der Kanzlei Kolb</div>
-    </footer>
-  </body>
+      <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15" id="widerruf">
+        <div class="p-6 md:p-8">
+          <h2 class="text-3xl font-bold text-primary mb-5">Widerrufsbelehrung</h2>
+          <div class="space-y-6 text-secondary leading-7">
+            <p>Soweit mit Verbrauchern im Einzelfall ein außerhalb von Geschäftsräumen geschlossener Vertrag oder ein Fernabsatzvertrag zustande kommt und hierfür ein gesetzliches Widerrufsrecht besteht, gilt die nachfolgende Belehrung.</p>
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Widerrufsrecht</h3>
+              <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen einen solchen Vertrag zu widerrufen. Die Widerrufsfrist beträgt 14 Tage ab dem Tag des Vertragsschlusses.</p>
+              <p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns, Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, E-Mail: sk@kanzleikolb.com, mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Zur Wahrung der Frist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Folgen des Widerrufs</h3>
+              <p>Wenn Sie einen widerrufsfähigen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart.</p>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Einverständnis mit Beginn vor Ablauf der Widerrufsfrist</h3>
+              <p>Mit Bestätigung der hierfür vorgesehenen Checkbox im Anfrageformular verlangen Sie ausdrücklich und stimmen zu, dass die Kanzlei mit der anwaltlichen Erstprüfung bereits vor Ablauf einer etwaigen Widerrufsfrist beginnt.</p>
+              <p>Sie bestätigen dabei zugleich, dass Ihnen bekannt ist, dass Ihr Widerrufsrecht bei vollständiger Erbringung der Dienstleistung vorzeitig erlöschen kann, wenn mit der Ausführung erst begonnen wurde, nachdem Sie hierzu Ihre ausdrückliche Zustimmung erteilt haben.</p>
+              <p>Soweit es sich bei der kostenfreien Erstprüfung im Einzelfall nicht um einen widerrufsfähigen Vertrag handelt, bleibt diese Erklärung vorsorglich für den Fall maßgeblich, dass ein gesetzliches Widerrufsrecht doch bestehen sollte oder später eine weitere widerrufsfähige Beauftragung erfolgt.</p>
+            </div>
+            <div class="bg-surface-container-highest rounded-xl p-5 border border-outline-variant/15">
+              <h3 class="text-2xl font-bold text-primary mb-3">Muster für eine Widerrufserklärung</h3>
+              <p>Wenn Sie den Vertrag widerrufen wollen, können Sie uns zum Beispiel folgende Erklärung übermitteln:</p>
+              <p class="text-sm">An Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, E-Mail: sk@kanzleikolb.com: Hiermit widerrufe ich den von mir abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung: [Dienstleistung einfügen]. Bestellt/beauftragt am: [Datum]. Name und Anschrift des Verbrauchers: [Angaben]. Datum und Unterschrift, sofern auf Papier widerrufen wird.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15" id="datenschutz">
+        <div class="p-6 md:p-8">
+          <h2 class="text-3xl font-bold text-primary mb-5">Datenschutzhinweise</h2>
+          <div class="space-y-6 text-secondary leading-7">
+            <p>Verantwortlich für die Datenverarbeitung ist die Kanzlei Kolb, Landsberger Straße 8, 87719 Mindelheim, E-Mail: kontakt@kanzleikolb.com, Telefon: 08261 229 787 0</p>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Welche Daten wir verarbeiten</h3>
+              <ul class="space-y-3 pl-5 list-disc">
+                <li>Stammdaten und Kontaktdaten wie Name, Anschrift, Telefonnummer und E-Mail-Adresse,</li>
+                <li>Angaben aus dem Anfrageformular, insbesondere zur Frage früherer Geldstrafen,</li>
+                <li>hochgeladene Unterlagen wie Strafbefehl, PZU und sonstige von Ihnen übermittelte Dokumente,</li>
+                <li>Kommunikationsdaten aus Rückfragen und Korrespondenz,</li>
+                <li>technische Protokolldaten, soweit dies zum sicheren Betrieb der Website erforderlich ist.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Zwecke der Verarbeitung</h3>
+              <ul class="space-y-3 pl-5 list-disc">
+                <li>Bearbeitung Ihrer Anfrage und Durchführung der anwaltlichen Erstprüfung,</li>
+                <li>Kommunikation mit Ihnen und Klärung von Rückfragen,</li>
+                <li>Vorbereitung eines möglichen Folgeangebots für eine weitergehende anwaltliche Vertretung,</li>
+                <li>Erfüllung berufs-, steuer- und sonstiger gesetzlicher Pflichten,</li>
+                <li>IT-Sicherheit, Missbrauchsvermeidung sowie Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Rechtsgrundlagen</h3>
+              <p>Die Verarbeitung erfolgt in der Regel auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO zur Durchführung vorvertraglicher Maßnahmen beziehungsweise zur Erfüllung eines Vertrags, auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO zur Erfüllung gesetzlicher Pflichten sowie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO für berechtigte Interessen an einem sicheren und funktionsfähigen Kanzlei- und Websitebetrieb.</p>
+              <p>Soweit in Ihren Unterlagen besondere Kategorien personenbezogener Daten enthalten sind, erfolgt die Verarbeitung ergänzend nur, soweit dies nach Art. 9 Abs. 2 DSGVO zulässig ist, insbesondere zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Soweit Unterlagen Angaben zu strafrechtlichen Vorwürfen, Straftaten oder Verurteilungen enthalten, werden diese nur im Rahmen der rechtlich zulässigen anwaltlichen Mandatsanbahnung und -bearbeitung verarbeitet.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Empfänger und Kategorien von Empfängern</h3>
+              <p>Zugriff auf Ihre Daten erhalten nur diejenigen Stellen, die sie zur Bearbeitung Ihrer Anfrage benötigen. Hierzu können interne Mitarbeiter der Kanzlei sowie technische Dienstleister gehören, etwa für Hosting, E-Mail, Dateiverarbeitung, Datenspeicherung oder Websitebetrieb.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Drittlandübermittlungen</h3>
+              <p>Eine Übermittlung in Staaten außerhalb der Europäischen Union oder des Europäischen Wirtschaftsraums findet nur statt, wenn dies für einzelne technische Dienste erforderlich ist und die gesetzlichen Voraussetzungen hierfür erfüllt sind.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Speicherdauer</h3>
+              <p>Wir speichern Ihre Daten nur so lange, wie dies für die Bearbeitung der Anfrage, die anwaltliche Erstprüfung, die Anbahnung oder Durchführung eines Mandats oder zur Erfüllung gesetzlicher Aufbewahrungspflichten erforderlich ist. Anfragen, aus denen kein Mandat entsteht, werden nach Abschluss der Bearbeitung gelöscht, soweit keine berechtigten Gründe oder gesetzlichen Pflichten einer Löschung entgegenstehen.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Ihre Rechte</h3>
+              <p>Ihnen stehen nach Maßgabe der gesetzlichen Voraussetzungen insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen zu.</p>
+              <p>Sie haben zudem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Zuständig für nichtöffentliche Stellen in Bayern ist insbesondere das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach, Website: <a class="text-primary underline underline-offset-2" href="https://www.lda.bayern.de/" target="_blank" rel="noreferrer">www.lda.bayern.de</a>.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Bereitstellung der Daten</h3>
+              <p>Die Bereitstellung der als Pflichtangaben abgefragten Daten ist erforderlich, damit wir Ihre Anfrage prüfen und bearbeiten können. Ohne diese Angaben oder ohne lesbare Unterlagen kann eine anwaltliche Erstprüfung regelmäßig nicht erfolgen.</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-3">Automatisierte Entscheidungen</h3>
+              <p>Eine ausschließlich automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/15" id="impressum">
+        <div class="p-6 md:p-8">
+          <h2 class="text-3xl font-bold text-primary mb-5">Impressum</h2>
+          <div class="space-y-6 text-secondary leading-7">
+            <p>Kanzlei Kolb<br />Landsberger Straße 8<br />87719 Mindelheim</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Vertreten durch</strong>Rechtsanwalt Sascha Kolb</div>
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Kontakt</strong>E-Mail: kontakt@kanzleikolb.com<br />Telefon: 08261 229 787 0</div>
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Zuständige Rechtsanwaltskammer</strong>RAK München<br />Im Tal 33<br />80331 München</div>
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Berufsbezeichnung</strong>Rechtsanwalt, verliehen in der Bundesrepublik Deutschland</div>
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Aufsichtsbehörde</strong>RAK München</div>
+              <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-2">Berufshaftpflichtversicherung</strong>R+V<br />Raiffeisenplatz 1<br />65189 Wiesbaden</div>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-4">Berufsrechtliche Regelungen</h3>
+              <div class="space-y-3">
+                <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-1">Bundesrechtsanwaltsordnung (BRAO)</strong>Abrufbar unter <a class="text-primary underline underline-offset-2" href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a></div>
+                <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-1">Berufsordnung für Rechtsanwälte (BORA)</strong>Abrufbar unter <a class="text-primary underline underline-offset-2" href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a></div>
+                <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-1">Fachanwaltsordnung (FAO), sofern einschlägig</strong>Abrufbar unter <a class="text-primary underline underline-offset-2" href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a></div>
+                <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/15"><strong class="block text-primary mb-1">Rechtsanwaltsvergütungsgesetz (RVG)</strong>Abrufbar unter <a class="text-primary underline underline-offset-2" href="https://www.brak.de/anwaltschaft/berufsrecht/" target="_blank" rel="noreferrer">www.brak.de</a></div>
+              </div>
+            </div>
+
+            <p class="text-sm">Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV: Rechtsanwalt Sascha Kolb, Landsberger Straße 8, 87719 Mindelheim.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-[#041627] dark:bg-black w-full py-12 px-8 font-['Inter'] text-sm text-white mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-start max-w-7xl mx-auto gap-8">
+      <div class="space-y-4">
+        <div class="text-lg font-['Manrope'] font-bold text-white">pruefe-deinen-strafbefehl.de</div>
+        <p class="text-slate-400 max-w-xs leading-relaxed">Ein Service der Kanzlei Kolb</p>
+      </div>
+      <div class="flex flex-wrap gap-x-12 gap-y-6">
+        <div class="flex flex-col gap-3">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rechtliches</span>
+          <a class="text-slate-400 hover:text-white transition-all" href="#vollmacht">Vollmacht</a>
+          <a class="text-slate-400 hover:text-white transition-all" href="#agb">AGB</a>
+          <a class="text-slate-400 hover:text-white transition-all" href="#widerruf">Widerruf</a>
+          <a class="text-slate-400 hover:text-white transition-all" href="#datenschutz">Datenschutz</a>
+          <a class="text-slate-400 hover:text-white transition-all" href="#impressum">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
