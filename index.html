@@ -10,8 +10,8 @@
 />
 <meta name="theme-color" content="#efe5d4" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {
     darkMode: "class",
@@ -88,6 +88,16 @@ tailwind.config = {
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3 { font-family: 'Manrope', sans-serif; }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17787534772"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17787534772');
+</script>
+
 </head>
 <body class="bg-surface text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
 <nav class="fixed top-0 w-full z-50 bg-[#fbf9fa] dark:bg-[#041627] backdrop-blur-md bg-opacity-80 shadow-[0px_12px_32px_rgba(27,28,29,0.06)]">
@@ -404,6 +414,13 @@ const MAX_FILE_SIZE_MB = 25;
 const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 60000;
 
+/*
+  HIER SPÄTER NUR DAS LABEL ERSETZEN:
+  Beispiel:
+  const GOOGLE_ADS_SEND_TO = 'AW-17787534772/AbCdEFgHijKLMnoPq';
+*/
+const GOOGLE_ADS_SEND_TO = 'AW-17787534772/DEIN_LABEL_HIER';
+
 const uploadInputs = document.querySelectorAll('.upload-input');
 const form = document.querySelector('[data-form]');
 const status = document.querySelector('[data-form-status]');
@@ -440,6 +457,20 @@ function validatePdfFile(file) {
   }
 
   return '';
+}
+
+function trackGoogleAdsConversion() {
+  if (typeof gtag !== 'function') {
+    return;
+  }
+
+  if (!GOOGLE_ADS_SEND_TO || GOOGLE_ADS_SEND_TO.includes('DEIN_LABEL_HIER')) {
+    return;
+  }
+
+  gtag('event', 'conversion', {
+    'send_to': GOOGLE_ADS_SEND_TO
+  });
 }
 
 uploadInputs.forEach((input) => {
@@ -527,6 +558,8 @@ if (form) {
       if (!response.ok) {
         throw new Error(text || 'Die Übermittlung ist fehlgeschlagen.');
       }
+
+      trackGoogleAdsConversion();
 
       setStatus(text || 'Upload erfolgreich.');
       form.reset();
